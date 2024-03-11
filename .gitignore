@@ -1,0 +1,50 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+coverage/
+
+# TypeScript
+*.tsbuildinfo
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# Build output
+build/
+dist/
+*.js
+*.js.map
+
+# Dependency directories
+# example: /node_modules
+**/node_modules/
+
+# Typescript
+*.tsbuildinfo
+
+# Testing
+__tests__/tmp/
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+coverage/
+**/package-lock.json
+
+# TypeScript
+*.tsbuildinfo
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# Build output
+dist/
+*.js
+*.js.map
+
+# Test generated files
+__tests__/tmp/
