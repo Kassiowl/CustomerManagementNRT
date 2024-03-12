@@ -64,7 +64,7 @@ const RegisterClient: React.FC<RegisterClientProps> = ({ onSubmit }) => {
           <Form.Control
             type="text"
             placeholder="Sobrenome"
-            name="Sobrenome"
+            name="last_name"
             value={formData.last_name}
             onChange={handleInputChange}
             required
@@ -76,7 +76,7 @@ const RegisterClient: React.FC<RegisterClientProps> = ({ onSubmit }) => {
           <Form.Control
             type="number"
             placeholder="Idade"
-            name="Idade"
+            name="age"
             value={formData.age}
             onChange={handleInputChange}
             required
@@ -88,7 +88,7 @@ const RegisterClient: React.FC<RegisterClientProps> = ({ onSubmit }) => {
           <Form.Control
             type="text"
             placeholder="Endereço"
-            name="Endereço"
+            name="address"
             value={formData.address}
             onChange={handleInputChange}
             required
