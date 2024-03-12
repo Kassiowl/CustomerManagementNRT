@@ -3,10 +3,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table } from 'react-bootstrap';
 
 interface Client {
-  first_name: string;
-  last_name: string;
+  firstName: string;
+  lastName: string;
   age: string;
   address: string;
+  coordinate: Coordinate
+}
+interface Coordinate{
+  coordinate_x: number,
+  coordinate_y: number
 }
 
 interface ClientListProps {
@@ -19,20 +24,24 @@ const ClientList: React.FC<ClientListProps> = ({ clients }) => {
       <thead>
         <tr>
           <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Age</th>
-          <th>Address</th>
+          <th>Nome</th>
+          <th>Sobrenome</th>
+          <th>Idade</th>
+          <th>Endereço</th>
+          <th>Coordenada X</th>
+          <th>Coordenada Y</th>
         </tr>
       </thead>
       <tbody>
         {clients.map((client, index) => (
           <tr key={index}>
             <td>{index + 1}</td>
-            <td>{client.first_name}</td>
-            <td>{client.last_name}</td>
+            <td>{client.firstName}</td>
+            <td>{client.lastName}</td>
             <td>{client.age}</td>
             <td>{client.address}</td>
+            <td>{client.coordinate.coordinate_x}</td>
+            <td>{client.coordinate.coordinate_y}</td>
           </tr>
         ))}
       </tbody>

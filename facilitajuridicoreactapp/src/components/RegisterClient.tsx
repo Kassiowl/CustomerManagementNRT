@@ -17,6 +17,8 @@ const RegisterClient: React.FC<RegisterClientProps> = ({ onSubmit }) => {
     last_name: '',
     age: '',
     address: '',
+    coordinate_x: '',
+    coordinate_y: '',
   });
 
   const handleInputChange = (
@@ -36,18 +38,20 @@ const RegisterClient: React.FC<RegisterClientProps> = ({ onSubmit }) => {
       last_name: '',
       age: '',
       address: '',
+      coordinate_x: '',
+      coordinate_y: '',
     });
   };
 
   return (
     <Container>
-      <h1 className="mt-4">Register Client</h1>
+      <h1 className="mt-4">Registrar Client</h1>
       <Form onSubmit={handleSubmit} className="mt-3">
         <Form.Group controlId="formFirstName">
-          <Form.Label>First Name</Form.Label>
+          <Form.Label>Nome</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter first name"
+            placeholder="Nome"
             name="first_name"
             value={formData.first_name}
             onChange={handleInputChange}
@@ -56,11 +60,11 @@ const RegisterClient: React.FC<RegisterClientProps> = ({ onSubmit }) => {
         </Form.Group>
 
         <Form.Group controlId="formLastName">
-          <Form.Label>Last Name</Form.Label>
+          <Form.Label>Sobrenome</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter last name"
-            name="last_name"
+            placeholder="Sobrenome"
+            name="Sobrenome"
             value={formData.last_name}
             onChange={handleInputChange}
             required
@@ -68,11 +72,11 @@ const RegisterClient: React.FC<RegisterClientProps> = ({ onSubmit }) => {
         </Form.Group>
 
         <Form.Group controlId="formAge">
-          <Form.Label>Age</Form.Label>
+          <Form.Label>Idade</Form.Label>
           <Form.Control
             type="number"
-            placeholder="Enter age"
-            name="age"
+            placeholder="Idade"
+            name="Idade"
             value={formData.age}
             onChange={handleInputChange}
             required
@@ -80,12 +84,36 @@ const RegisterClient: React.FC<RegisterClientProps> = ({ onSubmit }) => {
         </Form.Group>
 
         <Form.Group controlId="formAddress">
-          <Form.Label>Address</Form.Label>
+          <Form.Label>Endereço</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter address"
-            name="address"
+            placeholder="Endereço"
+            name="Endereço"
             value={formData.address}
+            onChange={handleInputChange}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group controlId="formCoordinatesX">
+          <Form.Label>Coordenada X</Form.Label>
+          <Form.Control
+            type="number"
+            placeholder="coordenada X"
+            name="coordinate_x"
+            value={formData.coordinate_x}
+            onChange={handleInputChange}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group controlId="formCoordinatesY">
+          <Form.Label>Coordenada Y</Form.Label>
+          <Form.Control
+            type="number"
+            placeholder="Coordenada Y"
+            name="coordinate_y"
+            value={formData.coordinate_y}
             onChange={handleInputChange}
             required
           />

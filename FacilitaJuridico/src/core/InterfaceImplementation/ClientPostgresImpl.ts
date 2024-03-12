@@ -30,13 +30,9 @@ export class ClientPostgresImpl implements ClientInterface{
             await this.connect();
       
             const result = await this.client.query(
-              'INSERT INTO clients (first_name, last_name, age, address) VALUES ($1, $2, $3, $4) RETURNING *',
-              [person.firstName, person.lastName, person.age, person.address]
+              'INSERT INTO clients (first_name, last_name, age, address, coordinate_x, coordinate_y) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+              [person.firstName, person.lastName, person.age, person.address, person.coordinate.coordinate_x, person.coordinate.coordinate_y]
             );
-      
-            
-            const insertedClient = result.rows[0];
-      
           
             await this.disconnect();
       
@@ -53,7 +49,16 @@ export class ClientPostgresImpl implements ClientInterface{
         const result = await this.client.query(
           `SELECT * FROM clients;`
         );
-        const clients: Person[] = result.rows;
+        const clients: Person[] = result.rows.map(row => ({
+            firstName: row.first_name,
+            lastName: row.last_name,
+            age: row.age,
+            address: row.address,
+            coordinate: {
+                coordinate_x: row.coordinate_x,
+                coordinate_y: row.coordinate_y
+            }
+        }));
     
         await this.disconnect();
     
